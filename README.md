@@ -61,7 +61,7 @@ The default URL for Zabbix UI when using Apache web server is http://host/zabbix
 
 
 
-Integration google chats with zabbix
+Integration of google chat with zabbix
 
 Create a workspace, go to space settings --> apps & integration --> add webhooks --> add name & save (URL would be created automatically)
 
@@ -69,6 +69,7 @@ Go to zabbix --> Administration --> Media types --> create media type(webhook)
 
 add parameters like google_endpoint --> Paste URL of that google workspace
 		    zabbix_url --> http://ip_of_server:8080/zabbix
+
 set timeout 30s
 
 
