@@ -20,6 +20,7 @@ sudo systemctl start mysql
 - Create initial database
 
 sudo mysql
+
 create database zabbix character set utf8mb4 collate utf8mb4_bin;
 
 create user zabbix@localhost identified by 'password';
@@ -37,7 +38,9 @@ sudo zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql --default-ch
 - Disable log_bin_trust_function_creators option after importing database schema.
 
 sudo mysql
+
 set global log_bin_trust_function_creators = 0;
+
 quit;
 
 - Configure the database for Zabbix server
@@ -49,6 +52,7 @@ sudo vim /etc/zabbix/zabbix_server.conf
 - Start Zabbix server and agent processes
 
 systemctl restart zabbix-server zabbix-agent apache2
+
 systemctl enable zabbix-server zabbix-agent apache2
 
 - Open Zabbix UI web page and proceed with web ui config (should be self explanatory)
@@ -62,7 +66,9 @@ Integration google chats with zabbix
 Create a workspace, go to space settings --> apps & integration --> add webhooks --> add name & save (URL would be created automatically)
 
 Go to zabbix --> Administration --> Media types --> create media type(webhook)
+
 add parameters like google_endpoint --> Paste URL of that google workspace
 		    zabbix_url --> http://ip_of_server:8080/zabbix
 set timeout 30s
+
 
